@@ -3,8 +3,6 @@
 		<menuitem id="main_menu" sequence="10" name="Work Entries">
 			<menuitem id="work_entry_menu" sequence="1"
 				name="Work Entries">
-				<menuitem id="menu_work_entry_all" name="Work Entries"
-					action="hr_work_entry.hr_work_entry_action" sequence="1" />
 				<menuitem id="menu_conflict" name="Conflict Work Entry"
 					action="hr_work_entry.hr_work_entry_action_conflict" sequence="2" />
 			</menuitem>

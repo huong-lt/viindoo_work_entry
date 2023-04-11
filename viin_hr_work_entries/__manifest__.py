@@ -19,7 +19,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','viin_hr','hr_work_entry'],
+    'depends': ['base','viin_hr','hr_work_entry', 'hr_work_entry_contract'],
 
     # always loaded
     'data': [

@@ -6,6 +6,7 @@
 			<field name="res_model">hr.work.entry</field>
 			<field name="view_mode">tree,form,calendar,pivot,graph</field>
 		</record>
-		
+		<menuitem id="menu_work_entry_all" name="Work Entries"
+			parent="work_entry_menu" action="work_entry_action" sequence="1" />
 	</data>
 </odoo>
