@@ -8,14 +8,23 @@
 				<menuitem id="menu_conflict" name="Conflict Work Entry"
 					action="hr_work_entry.hr_work_entry_action_conflict" sequence="2" />
 			</menuitem>
+			<menuitem id="work_entry_reports_menu" name="Reports"
+				sequence="2">
+				<menuitem id="work_entry_reports_management_menu"
+					name="Management" sequence="4">
+					<menuitem id="menu_action_work_entry_report"
+						name="Work Entry Analysis" action="action_work_entry_report"
+						sequence="1"></menuitem>
+				</menuitem>
+			</menuitem>
 			<menuitem id="menu_configuration" name="Configuration"
 				sequence="2">
+				<menuitem id="menu_setting" name="Setting"
+					action="hr.hr_config_settings_action" sequence="100" />
 				<menuitem id="menu_refer_employee" name="Employees"
 					action="hr.open_view_employee_list_my" sequence="110" />
 				<menuitem id="menu_work_entry_type" name="Work Entry Type"
 					action="hr_work_entry.hr_work_entry_type_action" sequence="120" />
-				<menuitem id="menu_setting" name="Setting"
-					action="hr.hr_config_settings_action" sequence="130" />
 			</menuitem>
 
 		</menuitem>

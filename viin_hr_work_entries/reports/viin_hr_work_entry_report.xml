@@ -1,85 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 	<data>
-		<record id="view_education_report_pivot" model="ir.ui.view">
-			<field name="name">education.report.pivot</field>
-			<field name="model">education.report</field>
+		<record id="view_work_entry_report_pivot" model="ir.ui.view">
+			<field name="name">work.entry.report.pivot</field>
+			<field name="model">work.entry.report</field>
 			<field name="arch" type="xml">
-				<pivot string="Education Analysis" sample="1">
-					<field name="course_id" type="col" />
-					<field name="class_id" type="row" />
+				<pivot string="Work Entry Analysis" sample="1">
+					<field name="work_entry_type_id" type="col" />
+					<field name="employee_id" type="row" />
 				</pivot>
 			</field>
 		</record>
 
-		<record id="view_education_report_graph" model="ir.ui.view">
-			<field name="name">education.report.graph</field>
-			<field name="model">education.report</field>
+		<record id="view_work_entry_report_graph" model="ir.ui.view">
+			<field name="name">work.entry.report.graph</field>
+			<field name="model">work.entry.report</field>
 			<field name="arch" type="xml">
-				<graph string="Education Analysis" type="line" sample="1">
-					<field name="class_id" />
-					<field name="student_id" />
+				<graph string="Work Entry Analysis" type="line" sample="1">
+					<field name="work_entry_type_id" />
+					<field name="employee_id" />
 				</graph>
 			</field>
 		</record>
 
 
-		<record id="view_education_report_search" model="ir.ui.view">
-			<field name="name">education.report.search</field>
-			<field name="model">education.report</field>
+		<record id="view_work_entry_report_search" model="ir.ui.view">
+			<field name="name">work.entry.report.search</field>
+			<field name="model">work.entry.report</field>
 			<field name="arch" type="xml">
-				<search string="Education Analysis">
-					<field name="course_id" />
-					<field name="class_id" />
-					<field name="student_id" />
-					<filter string="My Class" name="my_class"
-						domain="[('responsible_id', '=', uid)]" />
+				<search string="Work Entry Analysis">
+					<field name="employee_id" />
+					<field name="work_entry_type_id" />
+					<field name="conflict" />
 					<separator />
-					<field name="enrollment_date" />
-					<separator />
-					<filter string="Open Class" name="open_class"
-						domain="[('state','in',('draft','confirmed'))]"
-						help="Draft Invoices" />
-					<filter string="Closed Class" name="close_class"
-						domain="[('state','=', 'done')]" />
-					<filter string="Cancelled Class" name="cancel_class"
-						domain="[('state','=', 'cancelled')]" />
+					<filter string="Active Work Entry" name="active_work_entry"
+						domain="[('state','in',('draft','validated'))]"
+						help="State of work entry is Draft or Validated" />
+					<filter string="Confilct Work Entry"
+						name="conflict_work_entry" domain="[('state','=', 'conflict')]" />
+					<filter string="Cancelled Work Entry"
+						name="cancel_work_entry" domain="[('state','=', 'cancelled')]" />
 					<separator />
 
 					<group expand="1" string="Group By">
-						<filter string="Class" name='class'
-							context="{'group_by':'class_id'}" />
-						<filter string="Course" name='course'
-							context="{'group_by':'course_id'}" />
-						<filter string="Student" name='student'
-							context="{'group_by':'student_id'}" />
+						<filter string="Employee" name='employee'
+							context="{'group_by':'employee_id'}" />
+						<filter string="Type" name='type_of_work_entry'
+							context="{'group_by':'work_entry_type_id'}" />
 						<filter string="Status" name="status"
 							context="{'group_by':'state'}" />
-						<filter string="Enrolment Date" name="enroll_date"
-							context="{'group_by':'enrollment_date'}" />
 						<separator orientation="vertical" />
 					</group>
 				</search>
 			</field>
 		</record>
 
-		<record id="action_education_report"
+		<record id="action_work_entry_report"
 			model="ir.actions.act_window">
-			<field name="name">Education Analysis</field>
-			<field name="res_model">education.report</field>
+			<field name="name">Work Entry Analysis</field>
+			<field name="res_model">work.entry.report</field>
 			<field name="view_mode">pivot,graph</field>
 		</record>
-
-
-		<menuitem id="education_reports_menu" name="Reports"
-			parent="root_menu" sequence="10">
-			<menuitem id="education_reports_management_menu"
-				name="Management" sequence="4">
-				<menuitem id="menu_action_education_report"
-					name="Education Reports" action="action_education_report"
-					sequence="1"></menuitem>
-			</menuitem>
-		</menuitem>
-
 	</data>
 </odoo>

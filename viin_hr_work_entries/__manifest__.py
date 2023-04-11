@@ -28,7 +28,8 @@
         'security/ir.model.access.csv',
         'views/main_menu.xml',
         'views/templates.xml',
-        'views/viin_hr_work_entry_views.xml'
+        'views/viin_hr_work_entry_views.xml',
+        'reports/viin_hr_work_entry_report.xml'
     ],
     # only loaded in demonstration mode
     'demo': [
