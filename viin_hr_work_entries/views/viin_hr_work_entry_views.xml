@@ -1,0 +1,11 @@
+<odoo>
+	<data>
+		<record id="work_entry_action"
+			model="ir.actions.act_window">
+			<field name="name">Work Entries</field>
+			<field name="res_model">hr.work.entry</field>
+			<field name="view_mode">tree,form,calendar,pivot,graph</field>
+		</record>
+		
+	</data>
+</odoo>

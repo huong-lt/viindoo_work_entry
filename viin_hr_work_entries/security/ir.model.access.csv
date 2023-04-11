@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_viin_hr_work_entries_viin_hr_work_entry,viin_hr_work_entries.viin_hr_work_entry,model_hr_work_entry,base.group_user,1,0,0,0
+access_work_entry_user,work_entry_user_group,model_hr_work_entry,group_work_entry_user,1,1,1,1
