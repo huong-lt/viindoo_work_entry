@@ -9,8 +9,6 @@
 
 			<menuitem id="menu_configuration" name="Configuration"
 				sequence="3">
-				<menuitem id="menu_setting" name="Setting"
-					action="hr.hr_config_settings_action" sequence="100" />
 				<menuitem id="menu_refer_employee" name="Employees"
 					action="hr.open_view_employee_list_my" sequence="110" />
 				<menuitem id="menu_hr_contract" name="Contracts"

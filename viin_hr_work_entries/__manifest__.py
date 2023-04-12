@@ -28,7 +28,8 @@
         'views/main_menu.xml',
         'views/templates.xml',
         'views/viin_hr_work_entry_views.xml',
-        'reports/viin_hr_work_entry_report.xml'
+        'reports/viin_hr_work_entry_report.xml',
+        'views/res_config_settings_views.xml'
     ],
     # only loaded in demonstration mode
     'demo': [
