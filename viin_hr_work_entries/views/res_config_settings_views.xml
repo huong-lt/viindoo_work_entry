@@ -10,7 +10,7 @@
 		<field name="arch" type="xml">
 			<xpath expr="//div[hasclass('settings')]" position="inside">
 				<div class="app_settings_block" data-string="Work Entries"
-					string="Work Entries" data-key="hr_work_entry"
+					string="Work Entries" data-key="viin_hr_work_entries"
 					groups="base.group_user">
 					<h2>Work Entry Management</h2>
 					<div class="row mt16 o_settings_container"
@@ -88,7 +88,7 @@
 		<field name="res_model">res.config.settings</field>
 		<field name="view_mode">form</field>
 		<field name="target">inline</field>
-		<field name="context">{'module': 'hr.work.entry'}</field>
+		<field name="context">{'module': 'viin_hr_work_entries'}</field>
 	</record>
 
 	<menuitem id="work_entry_settings_menu" name="Settings"
