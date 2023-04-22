@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Viin Work Entries",
+    'name': "Work Entries",
     'name_vi_VN': "Nhật ký công việc",
 
     'summary': """
@@ -40,11 +40,11 @@ Module này quản lý công việc của nhân viên.
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/16.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
-    'category': 'HR',
+    'category': 'Human Resources/Work Entry',
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','viin_hr','hr_work_entry', 'hr_work_entry_contract'],
+    'depends': ['base','viin_hr','hr_work_entry','hr_work_entry_contract'],
     
     # always loaded
     'data': [

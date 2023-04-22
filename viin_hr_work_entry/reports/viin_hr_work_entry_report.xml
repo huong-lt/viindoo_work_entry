@@ -67,7 +67,7 @@
 				name="Management" sequence="4">
 				<menuitem id="menu_action_work_entry_report"
 					name="Work Entry Analysis"
-					action="viin_hr_work_entries.action_work_entry_report" sequence="1"></menuitem>
+					action="viin_hr_work_entry.action_work_entry_report" sequence="1"></menuitem>
 			</menuitem>
 		</menuitem>
 	</data>
