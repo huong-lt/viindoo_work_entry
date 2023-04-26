@@ -1,6 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_viin_hr_work_entry_viin_hr_work_entry,viin_hr_work_entry.viin_hr_work_entry,viin_hr_work_entry.model_hr_work_entry,base.group_user,1,0,0,0
-access_work_entry_hr,work_entry_hr,viin_hr_work_entry.model_hr_work_entry,hr.group_hr_user,1,0,0,0
 access_work_entry_user,work_entry_user_group,viin_hr_work_entry.model_hr_work_entry,work_entry_group_user,1,1,1,1
 access_work_entry_report,work_entry_report,viin_hr_work_entry.model_work_entry_report,work_entry_group_admin,1,1,1,1
 access_work_entry_user_hr,work_entry_user_access_hr,hr.model_hr_employee,work_entry_group_user,1,0,0,0

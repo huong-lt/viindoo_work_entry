@@ -175,10 +175,10 @@ class TestAccessRight(Common):
         """
         # TH1: Check quyền truy cập model Work entry
         work_entry = self.env['hr.work.entry'].with_user(self.officer_user)
-        self.assertTrue(work_entry.check_access_rights('read'), 'Test Access Right (Payslip) for officer not oke')
-        self.assertTrue(work_entry.check_access_rights('create'), 'Test Access Right (Payslip) for officer not oke')
-        self.assertTrue(work_entry.check_access_rights('write'), 'Test Access Right (Payslip) for officer not oke')
-        self.assertTrue(work_entry.check_access_rights('unlink'), 'Test Access Right (Payslip) for officer not oke')
+        self.assertTrue(work_entry.check_access_rights('read'), 'Test Access Right (Work entry) for officer not oke')
+        self.assertTrue(work_entry.check_access_rights('create'), 'Test Access Right (Work entry) for officer not oke')
+        self.assertTrue(work_entry.check_access_rights('write'), 'Test Access Right (Work entry) for officer not oke')
+        self.assertTrue(work_entry.check_access_rights('unlink'), 'Test Access Right (Work entry) for officer not oke')
   
     # 3. Người dùng cán bộ
     def test_work_entry_security_officer_2(self):
@@ -193,7 +193,7 @@ class TestAccessRight(Common):
             fields.Datetime.from_string('2023-04-01 10:00:00'))
         self.assertIsNone(
             work_entry.with_user(self.officer_user).check_access_rule('read'),
-        'Test access rule (Payslip) for officer not oke')
+        'Test access rule (Work entry) for officer not oke')
         self.assertRaises(AccessError, work_entry.with_user(self.officer_user).check_access_rule, 'write')
         self.assertRaises(AccessError, work_entry.with_user(self.officer_user).check_access_rule, 'unlink')
     

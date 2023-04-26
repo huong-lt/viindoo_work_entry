@@ -24,7 +24,7 @@
 		<record id="work_entry_group_admin" model="res.groups">
 			<field name="name">Manager</field>
 			<field name="implied_ids"
-				eval="[(4, ref('work_entry_group_user')), (4, ref('hr_contract.group_hr_contract_manager'))]" />
+				eval="[(4, ref('work_entry_group_user'))]" />
 			<field name="category_id" ref="work_entry" />
 			<field name="users"
 				eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]" />
@@ -33,67 +33,58 @@
 	</data>
 
 
+<!--Record rule-->
+    <data noupdate="0">
+	
 
-	<data>
-		<record id="base.default_user" model="res.users">
-			<field name="groups_id"
-				eval="[(4,ref('viin_hr_work_entry.work_entry_group_admin'))]" />
-		</record>
-		
 		<record id="work_entry_base_rule" model="ir.rule">
 			<field name="name">Work Entry Base Rule</field>
-			<field name="model_id"
-				ref="viin_hr_work_entry.model_hr_work_entry"></field>
+			<field name="model_id" ref="hr_work_entry.model_hr_work_entry"></field>
 			<field name="groups" eval="[(4, ref('base.group_user'))]"></field>
-			<field name="domain_force">['|',('employee_id.user_id', '=',
-				user.id),('employee_id.parent_ids', 'in', (user.employee_id |
-				user.employee_ids).ids)]
+			<field name="domain_force">[('employee_id.user_id', '=',
+				user.id)]
 			</field>
-			
-		</record>
-		<record id="work_entry_hr_officer_rule" model="ir.rule">
-			<field name="name">Work Entry HR Rule</field>
-			<field name="model_id"
-				ref="viin_hr_work_entry.model_hr_work_entry"></field>
-			<field name="groups" eval="[(4, ref('hr.group_hr_user'))]"></field>
-			<field name="domain_force">[(1, '=', 1)]</field>
 			<field eval="1" name="perm_read" />
 			<field eval="0" name="perm_write" />
 			<field eval="0" name="perm_unlink" />
 			<field eval="0" name="perm_create" />
+
+		</record>
+		<record id="work_entry_team_leader_rule" model="ir.rule">
+			<field name="name">Work Entry Team Leader Rule</field>
+			<field name="model_id" ref="viin_hr_work_entry.model_hr_work_entry"></field>
+			<field name="groups" eval="[(4, ref('base.group_user'))]"></field>
+			<field name="domain_force">['|',('employee_id', 'in',
+				user.employee_ids.subordinate_ids.ids),('employee_id.department_id.manager_id.user_id',
+				'=', user.id)]
+			</field>
+			<field eval="1" name="perm_read" />
+			<field eval="0" name="perm_write" />
+			<field eval="0" name="perm_unlink" />
+			<field eval="0" name="perm_create" />
+
 		</record>
 		<record id="work_entry_user_rule" model="ir.rule">
 			<field name="name">Work Entry User Rule</field>
-			<field name="model_id"
-				ref="viin_hr_work_entry.model_hr_work_entry"></field>
+			<field name="model_id" ref="viin_hr_work_entry.model_hr_work_entry"></field>
 			<field name="groups"
 				eval="[(4, ref('viin_hr_work_entry.work_entry_group_user'))]"></field>
-			<field name="domain_force">[('employee_id.parent_ids', 'in', (user.employee_id |
-				user.employee_ids).ids)]
+			<field name="domain_force">['|',
+				('employee_id', 'in', user.employee_ids.subordinate_ids.ids),
+				('employee_id.user_id', '!=', user.id)]
 			</field>
 			<field eval="1" name="perm_read" />
 			<field eval="1" name="perm_write" />
 			<field eval="1" name="perm_unlink" />
 			<field eval="1" name="perm_create" />
 		</record>
-		<record id="work_entry_user_rule1" model="ir.rule">
-			<field name="name">Work Entry User Rule</field>
-			<field name="model_id"
-				ref="viin_hr_work_entry.model_hr_work_entry"></field>
-			<field name="groups"
-				eval="[(4, ref('viin_hr_work_entry.work_entry_group_user'))]"></field>
-			<field name="domain_force">[('employee_id.user_id', '=', user.id)]</field>
-			<field eval="1" name="perm_read" />
-			<field eval="0" name="perm_write" />
-			<field eval="0" name="perm_unlink" />
-			<field eval="0" name="perm_create" />
-		</record>
+
 		<record id="work_entry_admin_rule" model="ir.rule">
 			<field name="name">Work Entry Admin Rule</field>
 			<field name="model_id"
 				ref="viin_hr_work_entry.model_hr_work_entry"></field>
 			<field name="groups"
-				eval="[4,(ref('viin_hr_work_entry.work_entry_group_admin'))]"></field>
+				eval="[4,(ref('hr_work_entry.work_entry_group_admin'))]"></field>
 			<field name="domain_force">[(1, '=', 1)]</field>
 			<field eval="1" name="perm_read" />
 			<field eval="1" name="perm_write" />
